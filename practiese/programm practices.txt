@@ -1,0 +1,45 @@
+PROGRAMMS:-
+*************
+Touch add.sh
+nano add.sh
+bash add.sh
+**************
+add.sh
+
+x=100
+y=1
+z=$(($x+$y))
+echo $z
+**************************************************************
+2.
+
+read -p "enter first number:" x
+read -p "enter second number:" y
+z=$(( $x + $y))
+echo $z
+**************************************************************
+3.
+echo "Please Enter Your Employee Type"
+echo "1.FullTime 2.PartTime"
+
+read type
+PerHourCost=100
+LogHourspPerFDay=8
+Salary=0
+
+is FullTimer=1
+is PratTimer=2
+
+if[$type==$isfullTimer]
+then
+    salary=$((PerHourCost*LogHoursPerDay))
+
+elif[$type==$isPartTimer]
+then salary=$((PerHourCost*LogHoursPerDay))
+salary=$((salary/2))
+
+else
+echo "please check your input"
+fi
+echo " employee income $salary"
+********************************************************************

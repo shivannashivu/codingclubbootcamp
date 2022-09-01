@@ -1,0 +1,25 @@
+class Myclass{
+    int x;
+    Myclass(int x){
+        this.x=x;
+    }
+}
+
+class Employee{
+    Employee(){
+        System.out.println("This is employee class constructor");
+    }
+}
+class KnowName{
+    static void printName(Object obj){
+        Class c= obj.getClass();
+        String name = c.getName();
+        System.out.println("the classname="+name);
+    }
+}
+public class democlass {
+    public static void main(String[] args) {
+        Myclass obj=new Myclass(10);
+        KnowName.printName(obj);
+    }
+}

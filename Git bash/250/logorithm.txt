@@ -1,0 +1,27 @@
+algorithm
+Step 1 :-
+	Filter Only Javafile
+        Example:: 
+		add.java
+		sub.java
+		multiply.java
+		div.java
+
+Step 2 :- 
+	Find A Name Of That Javafiles
+	Example::
+		add.java ====> add
+		sub.java ====> sub
+		multiply.java ====> multiply
+		div.java ====> div
+
+Step 3 :-
+       Creat A File Name Same As Javafiles
+	Example::
+		add/
+		multiply/
+		sub/
+		div/
+
+Step 4 :- 
+	Cp The Orginal Files And Paste Into The Spectifc Folder

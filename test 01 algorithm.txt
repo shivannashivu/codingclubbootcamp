@@ -1,0 +1,18 @@
+cd .. For item in `items x.pdf y.docx z.mp4`
+
+do 
+
+   Backup = `echo $x.pdf y.docx z.mp4 | '{print $1}'`
+   mkdir $Backup 
+   cp-r $item $
+
+done
+
+
+
+
+
+1'st review Algorithm with Shell script
+
+Hi sir Thank you for your input I tried my level best  didn't get proper solution still need your presence having confusions going forward I will improve the skills 
+Doesn't have

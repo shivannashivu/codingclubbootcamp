@@ -1,0 +1,50 @@
+01
+class Myclass{
+    int x;
+    Myclass(int x){
+        this.x=x;
+    }
+}
+
+class Employee{
+    Employee(){
+        System.out.println("This is employee class constructor");
+    }
+}
+class KnowName{
+    static void printName(Object obj){
+        Class c= obj.getClass();
+        String name = c.getName();
+        System.out.println("the classname="+name);
+    }
+}
+public class Demo1 {
+    public static void main(String[] args) {
+        Myclass obj=new Myclass(10);
+        KnowName.printName(obj);
+
+
+02
+
+public class ForExample {  
+public static void main(String[] args) {  
+    //Code of Java for loop  
+    for(int i=1;i<=10;i++){  
+        System.out.println(i);  
+    }  
+}  
+}
+
+03
+
+public class PyramidExample2 {  
+public static void main(String[] args) {  
+int term=6;  
+for(int i=1;i<=term;i++){  
+for(int j=term;j>=i;j--){  
+        System.out.print("* ");  
+}  
+System.out.println();//new line  
+}  
+}  
+}
