@@ -1,0 +1,484 @@
+Algorithm:
+
+
+
+Step 1 :-
+
+   Filter only Java Files
+
+   Example :: add.java
+
+          sub.java
+
+          multiply.java
+
+          div.java
+
+Step 2 :- 
+
+        Find a Name of that Java Files
+
+   Example :: add.java ====> add
+
+                   sub.java ====> sub
+
+                   multiply.java ====> multiply
+
+                   div.java ====> div
+
+Step 3 :-
+
+   Create a folder with same name as Java Files Name
+
+        Example :: add/ 
+
+          sub/
+
+          multiply/
+
+          div/
+
+
+
+Step 4 :-
+
+   Copy a Original File and Paste into Specific Folder
+*************************************************************************************
+for item in `ls *.java`
+
+do
+
+   JavaFileName=`echo $item | awk -F. '{ print $1 }'`
+
+        mkdir $JavaFileName
+
+   cp -r $item $JavaFileName
+
+done
+*******************************************************************************************
+for item in `ls *.java`
+do
+    filename=`echo $item | awk -F. '{ print $1 }'`
+    if [ -d $filename ]
+    then
+         echo "inside if condition"
+         rm -rf $filename
+
+
+    fi
+    mkdir $filename
+    cp $item $filename
+done
+***********************************************************************
+echo "Please select any one of arithmetic operations"
+
+echo "Hint : 1.Add 2.Sub 3.Multiply 4.Division"
+
+read userInput
+
+
+
+read -p "Enter X Value here : " x
+
+read -p "Enter Y Value here : " y
+
+
+
+z=0
+
+
+
+if [ $userInput == 1 ]
+
+then
+
+   z=$((x+y))
+
+elif [ $userInput == 2 ]
+
+then
+
+   z=$((x-y))
+
+elif [ $userInput == 3 ]
+
+then
+
+   z=$((x*y))
+
+elif [ $userInput == 4 ]
+
+then
+
+   z=$((x/y))
+
+else
+
+   echo "Please Check Your Input  It's Invalid ..."
+
+fi
+
+
+
+echo "Result : $z"
+********************************************************
+read -p "Enter a Player In IPL " player
+
+case $player in
+
+   Dhoni)
+
+      echo "He is Captain Of CSK"
+
+      ;    ;
+
+   Virat)
+
+      echo "He is Captain Of RCB"
+
+      ;;
+
+   Rohit)
+
+      echo "He is Captain Of MI"
+
+      ;;
+
+  Rahul)
+
+      echo "He is Captain Of KXIP"
+
+      ;;
+
+   *)
+
+     echo "Invalid Input :( "
+
+     ;;
+
+esac
+***********************************************************
+echo "Please Select Your Employee Type"
+
+echo "1.Fulltime 2.Parttime"
+
+read type
+
+
+
+perHourCost=100
+
+logHoursPerDay=8
+
+salary=0
+
+
+
+isFullTimer=1
+
+isPartTimer=2
+
+
+
+if [ $type == $isFullTimer ]
+
+then
+
+    salary=$((perHourCost*logHoursPerDay))
+
+elif [ $type == $isPartTimer ]
+
+then
+
+    salary=$((perHourCost*logHoursPerDay))
+
+    salary=$((salary/2))
+
+else
+
+   echo "Plese Check Input , Its invalid ..."
+
+fi
+
+
+
+
+
+echo "Employee Income : $salary"
+********************************************************************
+read -p "Enter Your First Name : " fn
+read -p "Enter Your Last Name : " ln
+
+function fullname() {
+echo $1$2
+}
+result="$(fullname $fn $ln)"
+echo "My Fullname is : $result"
+
+*******************************************************************
+
+codinclubStaffs=("Ashwin" "Nandha" "Shreya" "Pooja")
+echo "Array Is : ${codinclubStaffs[@]}"
+echo "********CREATE********"
+codinclubStaffs[4]="Monika"
+codinclubStaffs[5]="Rajesh"
+echo "After Add , Array Is : ${codinclubStaffs[@]}"
+echo "********Retrieve*******"
+echo "Array Is : ${codinclubStaffs[@]}"
+echo "********Retrieve Specific*******"
+echo "Array Is : ${codinclubStaffs[4]}"
+echo "********Update*********"
+codinclubStaffs[1]="Nandhakumar"
+codinclubStaffs[5]="Dulquar"
+echo "After Update , Array Is : ${codinclubStaffs[@]}"
+echo "********Delete*********"
+unset 'codinclubStaffs[2]'
+unset 'codinclubStaffs[5]'
+echo "After Delete , Array Is : ${codinclubStaffs[@]}"
+echo "Index Number of Array Is : ${!codinclubStaffs[@]}"
+echo "Length of Array Is : ${#codinclubStaffs[@]}"
+
+***************************************************************************
+
+rcbTeam=("Maxwell" "Virat" "Abd" "Chahal")
+for player in ${rcbTeam[@]}
+do
+if [ $player == "Abd" ]
+then
+echo "$player Is a Batsman Of RCB"
+elif [ $player == "Chahal" ]
+then
+echo "$player Is a Bowler Of RCB"
+elif [ $player == "Maxwell" ]
+then
+echo "$player Is a Allrounder Of RCB"
+elif [ $player == "Rohit" ]
+then
+echo "$player Is a Captain Of RCB"
+else
+echo "Something went wrong"
+fi
+done
+*********************************************************************************
+echo "Select Your favourite team here"
+echo "hint : CSK DC GT"
+read teamName
+
+win=0
+lose=0
+points=0
+runRate=""
+MATCH_PLAYED=14
+rcbTeam=("Maxwell" "Virat" "Abd" "Chahal")
+function errorHandler() {
+echo "Your Given Input Is Invalid , Please Try Again ..."
+}
+function playoffEligibility() {
+if [ $1 -le 4 ]
+then
+echo "$2 is Eligible for PlayOffs"
+else
+echo "$2 is Not Eligible for PlayOffs"
+fi
+}
+# function rolesAndResponsibility(){
+# if [ $1 == "RCB" ]
+# then
+# for item in ${rcbTeam[@]}
+# do
+# if [ $item == "Virat" ]
+# then
+
+# fi
+# done
+# elif [ $1 == "MI" ]
+# then
+
+# else
+# echo ""
+# fi
+# }
+function pointsEstimation(){
+lose=$((MATCH_PLAYED-$1))
+points=$(($1*2))
+echo "Team You Choosen , $teamName"
+echo "Place Secured : $2"
+echo "Matched Played : $MATCH_PLAYED"
+echo "Won $1 , Lost $lose"
+echo "Points : $points"
+playoffEligibility $2 $teamName
+# rolesAndResponsibility $teamName
+}
+if [ $teamName == "MI" ]
+then
+position=10
+win=4
+runRate="-0.506"
+pointsEstimation $win $position $runRate
+elif [ $teamName == "CSK" ]
+then
+position=9
+win=4
+runRate="-0.203"
+pointsEstimation $win $position $runRate
+elif [ $teamName == "RCB" ]
+then
+position=4
+win=8
+runRate="-0.253"
+pointsEstimation $win $position $runRate
+else
+errorHandler
+fi
+
+****************************************************************************
+declare -A movies
+movies[english]="spiderman"
+movies[telugu]="RRR"
+movies[tamil]="vikram"
+movies[hindi]="okjaanu"
+movies[kannada]="kgf"
+
+
+echo "Dictionary Is : ${movies[@]}"
+echo "********CREATE********"
+movies[malayalam]="kurup"
+
+echo "After Add , Dictionary Is : ${movies[@]}"
+echo "********Retrieve*******"
+echo "Dictionary Is : ${movies[@]}"
+echo "********Retrieve Specific*******"
+echo "Dictionary Is : ${movies[tamil]}"
+echo "********Update*********"
+movies[telugu]="bahubali"
+movies[tamil]="master"
+echo "After Update , Dictionary Is : ${movies[@]}"
+echo "********Delete*********"
+unset 'movies[english]'
+unset 'movies[telugu]'
+echo "After Delete , Dictionary Is : ${movies[@]}"
+echo "Keys of Dictionary Is : ${!movies[@]}"
+echo "Length of Dictionary Is : ${#movies[@]}"
+
+********************************************************************
+
+echo "Select Your favourite team here"
+echo "hint : CSK DC GT"
+read teamName
+
+win=0
+lose=0
+points=0
+runRate=""
+MATCH_PLAYED=14
+rcbTeam=("Maxwell" "Virat" "Abd" "Chahal")
+miTeam=("Pollard" "Ishan" "Bumrah" "Rohit")
+declare -A cskTeam
+cskTeam[batsman]="Duplesis"
+cskTeam[bowler]="Saha"
+cskTeam[allrounder]="Jadeja"
+cskTeam[captain]="Dhoni"
+function errorHandler() {
+echo "Your Given Input Is Invalid , Please Try Again ..."
+}
+function playoffEligibility() {
+if [ $1 -le 4 ]
+then
+echo "$2 is Eligible for PlayOffs"
+else
+echo "$2 is Not Eligible for PlayOffs"
+fi
+}
+function roles(){
+echo "$1 is a $3 of team $2"
+}
+function responsibility(){
+if [ $1 == "MI" ]
+then
+for item in ${miTeam[@]}
+do
+if [ $item == "Bumrah" ]
+then
+roles $item $1 "Bowler"
+elif [ $item == "Rohit" ]
+then
+roles $item $1 "Captain"
+elif [ $item == "Ishan" ]
+then
+roles $item $1 "Batsman"
+else
+roles $item $1 "Allrounder"
+fi
+done
+elif [ $1 == "RCB" ]
+then
+for item in ${rcbTeam[@]}
+do
+if [ $item == "Chahal" ]
+then
+roles $item $1 "Bowler"
+elif [ $item == "Virat" ]
+then
+roles $item $1 "Captain"
+elif [ $item == "Abd" ]
+then
+roles $item $1 "Batsman"
+else
+roles $item $1 "Allrounder"
+fi
+done
+elif [ $1 == "CSK" ]
+then
+for item in ${cskTeam[@]}
+do
+if [ $item == "Saha" ]
+then
+roles $item $1 "Bowler"
+elif [ $item == "Dhoni" ]
+then
+roles $item $1 "Captain"
+elif [ $item == "Duplesis" ]
+then
+roles $item $1 "Batsman"
+else
+roles $item $1 "Allrounder"
+fi
+done
+else
+echo ""
+fi
+}
+function pointsEstimation(){
+lose=$((MATCH_PLAYED-$1))
+points=$(($1*2))
+echo "Team You Choosen , $teamName"
+echo "Place Secured : $2"
+echo "Matched Played : $MATCH_PLAYED"
+echo "Won $1 , Lost $lose"
+echo "Points : $points"
+playoffEligibility $2 $teamName
+responsibility $teamName
+}
+if [ $teamName == "MI" ]
+then
+position=10
+win=4
+runRate="-0.506"
+pointsEstimation $win $position $runRate
+elif [ $teamName == "CSK" ]
+then
+position=9
+win=4
+runRate="-0.203"
+pointsEstimation $win $position $runRate
+elif [ $teamName == "RCB" ]
+then
+position=4
+win=8
+runRate="-0.253"
+pointsEstimation $win $position $runRate
+else
+errorHandler
+fi
+
+*************************************************************************************
